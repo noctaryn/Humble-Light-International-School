@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Meet Our Educators – Humble Light International School" />
+  <link rel="icon" type="image/png" href="images/logo.jpg">
+  <title>Our Educators – Humble Light Int'l School</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="css/style.css" rel="stylesheet" />
+  <link href="css/responsive.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/hlis-global.css">
+  <style>
+    /* ── FOUNDER SECTION ── */
+    .founder-section {
+      background: linear-gradient(135deg, var(--navy) 0%, #071628 100%);
+      padding: 90px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .founder-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23c9a84c' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    /* Gold decorative blob */
+    .founder-section::after {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+      top: -200px; right: -200px;
+      pointer-events: none;
+    }
+    .founder-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      position: relative; z-index: 1;
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    /* PHOTO SIDE */
+    .founder-photo-wrap { position: relative; }
+    .founder-photo-frame {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+    }
+    .founder-photo-frame img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+    /* Gold corner accents */
+    .founder-photo-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 2px solid rgba(201,168,76,0.3);
+      border-radius: 24px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .founder-badge-wrap {
+      position: absolute;
+      bottom: -18px; right: -18px;
+      background: var(--gold);
+      border-radius: 16px;
+      padding: 16px 20px;
+      box-shadow: 0 12px 32px rgba(201,168,76,0.45);
+      text-align: center;
+      min-width: 120px;
+    }
+    .founder-badge-wrap .badge-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px; font-weight: 700;
+      color: var(--navy); line-height: 1;
+    }
+    .founder-badge-wrap .badge-lbl {
+      font-size: 10px; font-weight: 600;
+      color: var(--navy); text-transform: uppercase;
+      letter-spacing: 0.8px; margin-top: 3px;
+    }
+
+    /* TEXT SIDE */
+    .founder-text .section-label { color: var(--gold-light); }
+    .founder-text h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      color: var(--white); margin-bottom: 6px; line-height: 1.1;
+    }
+    .founder-text .founder-title {
+      font-size: 15px; color: var(--gold);
+      font-weight: 600; letter-spacing: 0.5px;
+      margin-bottom: 24px; display: flex; align-items: center; gap: 8px;
+    }
+    .founder-text .founder-title::before {
+      content: ''; display: block;
+      width: 32px; height: 2px; background: var(--gold);
+    }
+    .founder-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(16px, 2vw, 20px);
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+      border-left: 3px solid var(--gold);
+      padding-left: 20px;
+      margin-bottom: 28px;
+    }
+    .founder-bio p {
+      font-size: 15px; color: rgba(255,255,255,0.65);
+      line-height: 1.8; margin-bottom: 14px;
+    }
+    .founder-bio p:last-child { margin-bottom: 0; }
+    .founder-stats {
+      display: flex; gap: 32px; flex-wrap: wrap;
+      margin-top: 32px; padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .founder-stat h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px; color: var(--gold); margin-bottom: 3px;
+    }
+    .founder-stat p { font-size: 12px; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 1px; margin: 0; }
+
+    /* VISION PILLARS */
+    .vision-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .vision-pillar {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 14px;
+      padding: 24px 20px;
+      transition: all 0.3s;
+    }
+    .vision-pillar:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); }
+    .vision-pillar .vp-icon {
+      width: 44px; height: 44px;
+      background: rgba(201,168,76,0.15);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); font-size: 18px;
+      margin-bottom: 14px;
+    }
+    .vision-pillar h4 { font-size: 15px; color: var(--white); margin-bottom: 7px; }
+    .vision-pillar p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.6; margin: 0; }
+
+    /* STAFF GRID */
+    .staff-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 24px;
+    }
+    .staff-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(13,43,85,0.07);
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .staff-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .staff-img { width: 100%; aspect-ratio: 1; object-fit: cover; object-position: top; display: block; }
+    .staff-body { padding: 18px 20px; border-top: 3px solid var(--gold); }
+    .staff-body h4 { font-family: 'DM Sans',sans-serif; font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+    .staff-body span { font-size: 12px; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.8px; }
+
+    @media (max-width: 992px) {
+      .founder-inner { grid-template-columns: 1fr; gap: 40px; }
+      .founder-photo-frame { max-width: 320px; margin: 0 auto; }
+      .founder-photo-wrap { text-align: center; }
+      .vision-pillars { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .founder-section { padding: 60px 0; }
+      .staff-grid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 16px; }
+      .founder-stats { gap: 20px; }
+      .vision-pillars { grid-template-columns: 1fr; }
+      .founder-badge-wrap { bottom: -12px; right: -12px; padding: 12px 14px; min-width: 100px; }
+      .founder-badge-wrap .badge-num { font-size: 22px; }
+    }
+    @media (max-width: 400px) {
+      .staff-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; }
+      .staff-body { padding: 12px 12px; }
+      .staff-body h4 { font-size: 13px; }
+    }
+    @media (hover: none) {
+      .staff-card:hover { transform: none; box-shadow: var(--shadow-sm); }
+      .vision-pillar:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <img src="images/logo.jpg" alt="HLIS Logo">
+        <div class="brand-text">Humble Light Int'l School<span>Excellence · Faith · Character</span></div>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="active"><a href="teacher.html">Our Educators</a></li>
+        <li><a href="vehicle.html">Scholarship</a></li>
+        <li><a href="fees.html">Pay Fees</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb-nav"><a href="index.html">Home</a> &nbsp;/&nbsp; Our Educators</div>
+      <h1>Our Educators</h1>
+      <p>Meet the visionary leader and passionate team of educators who make Humble Light International School a place where every child can truly thrive.</p>
+    </div>
+  </div>
+
+  <!-- ── FOUNDER SPOTLIGHT ── -->
+  <section class="founder-section">
+    <div class="founder-inner">
+
+      <!-- PHOTO -->
+      <div class="founder-photo-wrap reveal-left">
+        <div class="founder-photo-frame">
+          <img src="images/director.jpeg" alt="Menkiti Chude – Founder & Vision Holder">
+        </div>
+        <div class="founder-badge-wrap">
+          <div class="badge-num">2013</div>
+          <div class="badge-lbl">Founded</div>
+        </div>
+      </div>
+
+      <!-- TEXT -->
+      <div class="founder-text reveal-right">
+        <div class="section-label">Founder & Vision Holder</div>
+        <h2>Menkiti Chude</h2>
+        <div class="founder-title">Director · Humble Light International School</div>
+
+        <div class="founder-quote">
+          "Every child is a light waiting to shine. Our calling is simply to create the environment where that light grows brightest."
+        </div>
+
+        <div class="founder-bio">
+          <p>
+            Menkiti Chude is the founder and vision holder of Humble Light International School, established in Lagos in 2013 with a single, unwavering conviction — that quality, faith-centred education should be accessible to every child, regardless of background.
+          </p>
+          <p>
+            Driven by a deep personal faith and a passion for child development, he built HLIS from the ground up as an institution where academic excellence and spiritual grounding are not competing priorities but inseparable ones. Under his leadership, the school has grown from a small community initiative into a thriving institution serving hundreds of families across Lagos.
+          </p>
+          <p>
+            His vision for HLIS extends beyond examination results — it is the formation of young people of integrity, purpose, and impact who will shape the future of Nigeria and beyond.
+          </p>
+        </div>
+
+        <div class="founder-stats">
+          <div class="founder-stat"><h4>10+</h4><p>Years of Leadership</p></div>
+          <div class="founder-stat"><h4>500+</h4><p>Lives Impacted</p></div>
+          <div class="founder-stat"><h4>1</h4><p>Unchanging Vision</p></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- VISION PILLARS -->
+    <div class="section-inner" style="margin-top: 64px; position: relative; z-index: 1;">
+      <div class="section-header-center reveal">
+        <div class="section-label" style="color:var(--gold-light);">The Vision</div>
+        <h2 class="section-title" style="color:var(--white);">What Drives Humble Light</h2>
+        <p class="section-subtitle" style="color:rgba(255,255,255,0.6);">Three convictions that have guided every decision since the school's founding.</p>
+      </div>
+      <div class="vision-pillars">
+        <div class="vision-pillar reveal reveal-delay-1">
+          <div class="vp-icon"><i class="fas fa-praying-hands"></i></div>
+          <h4>Faith as Foundation</h4>
+          <p>Every programme, classroom, and relationship at HLIS is shaped by Christian values — not as a subject taught, but as a culture lived.</p>
+        </div>
+        <div class="vision-pillar reveal reveal-delay-2">
+          <div class="vp-icon"><i class="fas fa-seedling"></i></div>
+          <h4>Every Child Has Potential</h4>
+          <p>No child is ordinary. The founder's core belief is that every student carries a God-given gift worth discovering and nurturing.</p>
+        </div>
+        <div class="vision-pillar reveal reveal-delay-3">
+          <div class="vp-icon"><i class="fas fa-globe-africa"></i></div>
+          <h4>Excellence for Nigeria</h4>
+          <p>HLIS exists to raise a generation of young Nigerians who are prepared — academically, morally, and practically — to lead and transform their nation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EDUCATORS GRID ── -->
+  <section class="section-pad" style="background:var(--cream);">
+    <div class="section-inner">
+      <div class="section-header-center reveal">
+        <div class="section-label">Leadership & Teaching Team</div>
+        <h2 class="section-title">The People Behind HLIS</h2>
+        <p class="section-subtitle">Our educators bring expertise, genuine care, and a shared calling to every classroom — going beyond curriculum to nurture curiosity and character in every child.</p>
+      </div>
+
+      <!-- Auto-fit grid — add more .staff-card blocks freely, they always arrange cleanly -->
+      <div class="staff-grid">
+        <div class="staff-card reveal reveal-delay-1">
+          <img class="staff-img" src="images/mom.jpeg" alt="Menkiti Faith">
+          <div class="staff-body"><h4>Menkiti Faith</h4><span>Proprietress</span></div>
+        </div>
+        <div class="staff-card reveal reveal-delay-2">
+          <img class="staff-img" src="images/ajibola.jpeg" alt="Adejumoke Ajibola">
+          <div class="staff-body"><h4>Adejumoke Ajibola</h4><span>Principal</span></div>
+        </div>
+        <div class="staff-card reveal reveal-delay-3">
+          <img class="staff-img" src="images/onyeka.jpeg" alt="Onyeka Anachebe">
+          <div class="staff-body"><h4>Onyeka Anachebe</h4><span>Overall Supervisor</span></div>
+        </div>
+        <div class="staff-card reveal reveal-delay-4">
+          <img class="staff-img" src="images/nwoko.jpeg" alt="Mrs. Lilian Nwokolo">
+          <div class="staff-body"><h4>Mrs. Lilian Nwokolo</h4><span>VP Academics</span></div>
+        </div>
+        <div class="staff-card reveal reveal-delay-5">
+          <img class="staff-img" src="images/peters.jpeg" alt="Ijeoma Peters">
+          <div class="staff-body"><h4>Ijeoma Peters</h4><span>Pre-School Supervisor</span></div>
+        </div>
+        <div class="staff-card reveal reveal-delay-1">
+          <img class="staff-img" src="images/newwom.jpeg" alt="Ijeoma Regina">
+          <div class="staff-body"><h4>Ijeoma Regina</h4><span>Pre-School Teacher</span></div>
+        </div>
+        <!-- To add more educators: copy a .staff-card block and update image/name/role -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY OUR EDUCATORS ── -->
+  <section class="section-pad" style="background:var(--white);">
+    <div class="section-inner">
+      <div class="section-header-center reveal">
+        <div class="section-label">Our Commitment</div>
+        <h2 class="section-title">Why Our Educators Are Different</h2>
+        <p class="section-subtitle">At HLIS, teaching is more than a profession. It is a calling — and our educators live that truth every day.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card reveal reveal-delay-1"><div class="value-icon"><i class="fas fa-heart"></i></div><h3>Genuine Care</h3><p>Our educators invest in every student personally, ensuring no child is left behind or feels unseen in any classroom.</p></div>
+        <div class="value-card reveal reveal-delay-2"><div class="value-icon"><i class="fas fa-award"></i></div><h3>Qualified & Trained</h3><p>Every team member is professionally trained and regularly upskilled to deliver modern, effective, and engaging instruction.</p></div>
+        <div class="value-card reveal reveal-delay-3"><div class="value-icon"><i class="fas fa-cross"></i></div><h3>Faith-Led</h3><p>Grounded in Christian values, our educators model the character, integrity, and purpose we work to build in every student.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── JOIN CTA ── -->
+  <section class="admission-section">
+    <div class="admission-inner section-inner reveal">
+      <img src="images/kidss.jpg" alt="Students">
+      <div class="admission-text">
+        <h2>Join Our Team</h2>
+        <p>Are you a passionate educator who shares our values? We are always looking for talented individuals who want to make a genuine difference in the lives of children.</p>
+      </div>
+      <a href="contact.html" class="btn-navy">Get In Touch <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="images/logo.jpg" alt="HLIS"><h3>Humble Light Int'l School</h3><p>Where Godly excellence meets academic excellence. Nurturing the next generation since 2013.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="teacher.html">Our Educators</a></li><li><a href="vehicle.html">Scholarship</a></li><li><a href="fees.html">Pay Fees</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="footer-col"><h4>Programmes</h4><ul><li><a href="#">Reception</a></li><li><a href="#">Preschool</a></li><li><a href="#">Primary</a></li><li><a href="#">Secondary</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Humble Light International School. All Rights Reserved.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.tiktok.com/@humble_light_" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://api.whatsapp.com/send/?phone=2347086614952&text&type=phone_number&app_absent=0" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', function() {
+      const open = navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+    });
+    navLinks.querySelectorAll('a').forEach(function(l) {
+      l.addEventListener('click', function() {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+      });
+    });
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(function(el) { observer.observe(el); });
+  </script>
+</body>
+</html>

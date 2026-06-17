@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="About Humble Light International School - Our story, vision, and mission" />
+  <link rel="icon" type="image/png" href="images/logo.jpg">
+  <title>About – Humble Light Int'l School</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="css/style.css" rel="stylesheet" />
+  <link href="css/responsive.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/hlis-global.css">
+  <style>
+    .prog-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+    .prog-card { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:var(--radius); padding:28px; }
+    .prog-icon { width:48px; height:48px; background:rgba(201,168,76,0.15); border-radius:12px; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:20px; margin-bottom:14px; }
+    .prog-card h3 { color:var(--white); font-size:20px; margin-bottom:8px; }
+    .prog-card p { color:rgba(255,255,255,0.62); font-size:13.5px; line-height:1.7; margin:0; }
+    .activity-cards { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+    .act-card { background:var(--white); border-radius:14px; padding:24px 18px; text-align:center; border:1px solid rgba(13,43,85,0.07); transition:var(--transition); }
+    .act-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+    .act-card i { font-size:28px; color:var(--gold); margin-bottom:10px; display:block; }
+    .act-card h4 { font-size:15px; color:var(--navy); margin-bottom:5px; }
+    .act-card p { font-size:12.5px; color:var(--text-mid); margin:0; line-height:1.5; }
+    @media (max-width:768px) {
+      .prog-grid { grid-template-columns:1fr; gap:14px; }
+      .activity-cards { grid-template-columns:repeat(2,1fr); gap:12px; }
+      .prog-card { padding:20px; }
+      .act-card { padding:18px 12px; }
+    }
+    @media (max-width:400px) {
+      .activity-cards { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (hover:none) { .act-card:hover { transform:none; box-shadow:none; } }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <img src="images/logo.jpg" alt="HLIS Logo">
+        <div class="brand-text">Humble Light Int'l School<span>Excellence · Faith · Character</span></div>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li class="active"><a href="about.html">About</a></li>
+        <li><a href="teacher.html">Our Educators</a></li>
+        <li><a href="vehicle.html">Scholarship</a></li>
+        <li><a href="fees.html">Pay Fees</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb-nav"><a href="index.html">Home</a> &nbsp;/&nbsp; About</div>
+      <h1>About HLIS</h1>
+      <p>Learn about our story, our values, and the vision driving Humble Light International School forward.</p>
+    </div>
+  </div>
+
+  <!-- STORY -->
+  <section class="section-pad" style="background:var(--cream);">
+    <div class="about-grid section-inner">
+      <div class="about-img-wrap reveal-left">
+        <img src="images/about.jpeg" alt="HLIS Students">
+        <div class="about-badge"><span class="num">2013</span><span class="sub">Est.</span></div>
+      </div>
+      <div class="reveal-right">
+        <div class="section-label">Our Story</div>
+        <h2 class="section-title">The Beginning of Humble Light</h2>
+        <p style="color:var(--text-mid);font-size:15px;line-height:1.75;margin-bottom:14px;">Founded in 2013, Humble Light International School was established with the vision of providing quality education rooted in strong Christian values. From the very beginning, the school has remained committed to a single purpose: raising children who are academically excellent and spiritually grounded.</p>
+        <p style="color:var(--text-mid);font-size:15px;line-height:1.75;margin-bottom:14px;">What started as a small community school has grown into a thriving institution that serves hundreds of families — bringing the best of holistic education to every child who walks through our doors.</p>
+        <p style="color:var(--text-mid);font-size:15px;line-height:1.75;margin-bottom:28px;">Today, HLIS continues to grow, innovate, and inspire — driven by the belief that every child carries a God-given potential worth nurturing.</p>
+        <a href="contact.html" class="btn-gold">Get In Touch <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION MISSION -->
+  <section class="section-pad" style="background:var(--white);">
+    <div class="section-inner">
+      <div class="section-header-center reveal">
+        <div class="section-label">Purpose</div>
+        <h2 class="section-title">Our Vision & Mission</h2>
+        <p class="section-subtitle">Three pillars that anchor everything we do — shaping lives, unlocking potential, and building character.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card reveal reveal-delay-1"><div class="value-icon"><i class="fas fa-praying-hands"></i></div><h3>Godly Environment</h3><p>We cultivate Christian values that shape the hearts and character of our students, ensuring faith is not just taught but lived in every corner of school life.</p></div>
+        <div class="value-card reveal reveal-delay-2"><div class="value-icon"><i class="fas fa-seedling"></i></div><h3>Harnessing Potentials</h3><p>We unlock the unique gifts and talents in every child through strong academics, extracurricular activities, and an environment that celebrates discovery.</p></div>
+        <div class="value-card reveal reveal-delay-3"><div class="value-icon"><i class="fas fa-globe-africa"></i></div><h3>Holistic Relevance</h3><p>We prepare students for real-world challenges by equipping them with practical life skills, leadership qualities, and the confidence to make a difference.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMMES -->
+  <section class="section-pad" style="background:var(--navy);">
+    <div class="section-inner">
+      <div class="section-header-center reveal">
+        <div class="section-label" style="color:var(--gold-light);">Academic Levels</div>
+        <h2 class="section-title" style="color:var(--white);">A Comprehensive Educational Journey</h2>
+        <p class="section-subtitle" style="color:rgba(255,255,255,0.6);">From the earliest years to senior secondary — HLIS provides a structured, nurturing academic path at every stage.</p>
+      </div>
+      <div class="prog-grid">
+        <div class="prog-card reveal reveal-delay-1"><div class="prog-icon"><i class="fas fa-baby"></i></div><h3>Reception</h3><p>A warm, playful environment that fosters early socialization, language development, and cognitive growth — the perfect first step into school life.</p></div>
+        <div class="prog-card reveal reveal-delay-2"><div class="prog-icon"><i class="fas fa-paint-brush"></i></div><h3>Preschool</h3><p>Focused on early literacy, numeracy, creativity, and emotional growth. We lay the foundation for a love of learning that lasts a lifetime.</p></div>
+        <div class="prog-card reveal reveal-delay-3"><div class="prog-icon"><i class="fas fa-book-open"></i></div><h3>Primary</h3><p>Building strong academic foundations across core subjects while encouraging curiosity, critical thinking, and character development in every student.</p></div>
+        <div class="prog-card reveal reveal-delay-4"><div class="prog-icon"><i class="fas fa-user-graduate"></i></div><h3>Secondary</h3><p>Rigorous academics and leadership training prepare students for WAEC, NECO, and future success in higher education and beyond.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXTRACURRICULAR -->
+  <section class="section-pad" style="background:var(--cream);">
+    <div class="section-inner">
+      <div class="section-header-center reveal">
+        <div class="section-label">More Than Academics</div>
+        <h2 class="section-title">Beyond the Classroom</h2>
+        <p class="section-subtitle">We believe in developing the whole child — our activities sharpen minds, build bodies, and cultivate creative expression.</p>
+      </div>
+      <div class="activity-cards">
+        <div class="act-card reveal reveal-delay-1"><i class="fas fa-chess"></i><h4>Chess</h4><p>Strategic thinking and sharp minds through structured competition.</p></div>
+        <div class="act-card reveal reveal-delay-2"><i class="fas fa-basketball-ball"></i><h4>Sports</h4><p>Teamwork, discipline, and fitness through basketball, athletics, and more.</p></div>
+        <div class="act-card reveal reveal-delay-3"><i class="fas fa-code"></i><h4>Coding</h4><p>Foundational programming skills for the digital age.</p></div>
+        <div class="act-card reveal reveal-delay-4"><i class="fas fa-fist-raised"></i><h4>Dance & Karate</h4><p>Creativity, expression, confidence, and physical strength.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="admission-section">
+    <div class="admission-inner section-inner reveal">
+      <img src="images/kidss.jpg" alt="Students">
+      <div class="admission-text"><h2>Ready to Join Us?</h2><p>We welcome families who share our passion for excellence, faith, and holistic development. Begin your HLIS journey today.</p></div>
+      <a href="contact.html" class="btn-navy">Apply Now <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="images/logo.jpg" alt="HLIS"><h3>Humble Light Int'l School</h3><p>Where Godly excellence meets academic excellence. Nurturing the next generation since 2013.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="teacher.html">Our Educators</a></li><li><a href="vehicle.html">Scholarship</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="footer-col"><h4>Programmes</h4><ul><li><a href="#">Reception</a></li><li><a href="#">Preschool</a></li><li><a href="#">Primary</a></li><li><a href="#">Secondary</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Humble Light International School. All Rights Reserved.</p>
+        <div class="social-links"><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="https://www.tiktok.com/@humble_light_" aria-label="TikTok"><i class="fab fa-tiktok"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a><a href="https://api.whatsapp.com/send/?phone=2347086614952&text&type=phone_number&app_absent=0" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', function() {
+      const open = navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+    });
+    navLinks.querySelectorAll('a').forEach(function(l) {
+      l.addEventListener('click', function() { navLinks.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded', false); });
+    });
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(function(el) { observer.observe(el); });
+  </script>
+</body>
+</html>

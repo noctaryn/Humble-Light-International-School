@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="HLIS Scholarship Programme - Supporting bright minds regardless of financial circumstance" />
+  <link rel="icon" type="image/png" href="images/logo.jpg">
+  <title>Scholarship – Humble Light Int'l School</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="css/style.css" rel="stylesheet" />
+  <link href="css/responsive.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/hlis-global.css">
+  <style>
+    .schol-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+    .schol-card { background:var(--white); border-radius:var(--radius); padding:32px 24px; border:1px solid rgba(13,43,85,0.07); text-align:center; transition:var(--transition); }
+    .schol-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+    .schol-icon { width:60px; height:60px; background:linear-gradient(135deg,var(--navy),var(--navy-light)); border-radius:14px; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:24px; margin:0 auto 18px; }
+    .schol-card h3 { font-size:19px; color:var(--navy); margin-bottom:9px; }
+    .schol-card p { font-size:13.5px; color:var(--text-mid); line-height:1.65; margin:0; }
+    .steps-list { list-style:none; padding:0; margin:0; counter-reset:step; }
+    .steps-list li { counter-increment:step; display:flex; gap:18px; align-items:flex-start; margin-bottom:28px; }
+    .steps-list li::before { content:counter(step); display:flex; align-items:center; justify-content:center; width:42px; height:42px; background:linear-gradient(135deg,var(--gold),var(--gold-light)); color:var(--navy); font-weight:700; font-size:15px; border-radius:50%; flex-shrink:0; font-family:'Playfair Display',serif; }
+    .steps-list li h4 { font-family:'DM Sans',sans-serif; font-size:15px; font-weight:600; color:var(--navy); margin-bottom:4px; }
+    .steps-list li p { font-size:13.5px; color:var(--text-mid); line-height:1.6; margin:0; }
+    .elig-box { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:20px; padding:36px; }
+    .elig-item { display:flex; gap:12px; align-items:flex-start; margin-bottom:16px; }
+    .elig-item:last-child { margin-bottom:0; }
+    .elig-item i { color:var(--gold); margin-top:2px; flex-shrink:0; }
+    .elig-item p { color:rgba(255,255,255,0.75); font-size:14px; line-height:1.6; margin:0; }
+    .act-feature { display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:center; margin-bottom:52px; }
+    .act-feature:last-child { margin-bottom:0; }
+    .act-feature:nth-child(even) { direction:rtl; }
+    .act-feature:nth-child(even) > * { direction:ltr; }
+    .act-img { border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-lg); }
+    .act-img img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
+    .apply-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
+    @media (max-width:900px) {
+      .schol-grid { grid-template-columns:1fr 1fr; }
+      .act-feature, .act-feature:nth-child(even) { grid-template-columns:1fr; direction:ltr; }
+      .apply-grid { grid-template-columns:1fr; }
+    }
+    @media (max-width:768px) {
+      .schol-grid { grid-template-columns:1fr; gap:14px; }
+      .schol-card { padding:24px 18px; }
+      .elig-box { padding:24px 18px; }
+    }
+    @media (hover:none) { .schol-card:hover { transform:none; box-shadow:none; } }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <img src="images/logo.jpg" alt="HLIS Logo">
+        <div class="brand-text">Humble Light Int'l School<span>Excellence · Faith · Character</span></div>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="teacher.html">Our Educators</a></li>
+        <li class="active"><a href="vehicle.html">Scholarship</a></li>
+         <li><a href="fees.html">Pay Fees</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb-nav"><a href="index.html">Home</a> &nbsp;/&nbsp; Scholarship</div>
+      <h1>Scholarship Programme</h1>
+      <p>We believe financial constraints should never limit a child's access to quality education. Our scholarship programme opens doors for deserving students.</p>
+    </div>
+  </div>
+
+  <section class="section-pad" style="background:var(--cream);">
+    <div class="about-grid section-inner">
+      <div class="about-img-wrap reveal-left">
+        <img src="images/activ1.jpeg" alt="Scholarship Students">
+        <div class="about-badge"><span class="num" style="font-size:14px;">Merit</span><span class="sub">Based</span></div>
+      </div>
+      <div class="reveal-right">
+        <div class="section-label">Scholarship Programme</div>
+        <h2 class="section-title">Opening Doors for Bright Minds</h2>
+        <p style="color:var(--text-mid);font-size:15px;line-height:1.75;margin-bottom:14px;">At HLIS, we firmly believe that every child deserves access to quality, faith-based education regardless of their family's financial circumstances. Our scholarship programme is built on this conviction.</p>
+        <p style="color:var(--text-mid);font-size:15px;line-height:1.75;margin-bottom:28px;">We identify academically talented and deserving students and offer support that enables them to receive a full HLIS education — developing them into future leaders, thinkers, and contributors to society.</p>
+        <div class="about-features">
+          <div class="about-feature"><div class="feat-icon"><i class="fas fa-medal"></i></div><div><h4>Merit-Based Awards</h4><p>Scholarships are awarded based on academic performance, character, and demonstrated potential.</p></div></div>
+          <div class="about-feature"><div class="feat-icon"><i class="fas fa-hand-holding-heart"></i></div><div><h4>Need-Based Support</h4><p>We also consider family financial circumstance to ensure no deserving child is turned away.</p></div></div>
+          <div class="about-feature"><div class="feat-icon"><i class="fas fa-calendar-check"></i></div><div><h4>Annual Application</h4><p>New scholarship positions are available every academic year — applications reviewed each term.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad" style="background:var(--white);">
+    <div class="section-inner">
+      <div class="section-header-center reveal">
+        <div class="section-label">What We Offer</div>
+        <h2 class="section-title">Types of Scholarship Awards</h2>
+        <p class="section-subtitle">Several levels of financial support to meet different needs and recognise various forms of excellence.</p>
+      </div>
+      <div class="schol-grid">
+        <div class="schol-card reveal reveal-delay-1"><div class="schol-icon"><i class="fas fa-trophy"></i></div><h3>Full Scholarship</h3><p>Complete tuition coverage for exceptionally talented students who demonstrate outstanding academic excellence and leadership qualities.</p></div>
+        <div class="schol-card reveal reveal-delay-2"><div class="schol-icon"><i class="fas fa-percentage"></i></div><h3>Partial Scholarship</h3><p>50% tuition reduction for qualified students — bridging the financial gap while encouraging continued academic striving.</p></div>
+        <div class="schol-card reveal reveal-delay-3"><div class="schol-icon"><i class="fas fa-star"></i></div><h3>Excellence Award</h3><p>Granted to existing students who achieve top results at the end of the academic year as recognition and encouragement.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad" style="background:var(--navy);">
+    <div class="section-inner">
+      <div class="apply-grid">
+        <div class="reveal-left">
+          <div class="section-label" style="color:var(--gold-light);">Application Process</div>
+          <h2 class="section-title" style="color:var(--white);">How to Apply</h2>
+          <p style="color:rgba(255,255,255,0.65);font-size:15px;line-height:1.75;margin-bottom:32px;">The process is simple and accessible so no deserving child misses an opportunity.</p>
+          <ul class="steps-list">
+            <li><div><h4>Submit an Enquiry</h4><p>Contact us via the Contact page or visit the school office to express interest in the scholarship programme.</p></div></li>
+            <li><div><h4>Complete the Application Form</h4><p>Fill in the official scholarship application form, including academic records and a brief personal statement.</p></div></li>
+            <li><div><h4>Attend an Assessment</h4><p>Shortlisted candidates are invited for an academic assessment and brief interview with the admissions team.</p></div></li>
+            <li><div><h4>Receive a Decision</h4><p>Successful applicants are notified within two weeks. Award details and conditions are provided in writing.</p></div></li>
+          </ul>
+        </div>
+        <div class="elig-box reveal-right">
+          <h3 style="color:var(--gold);font-size:22px;margin-bottom:6px;">Eligibility Criteria</h3>
+          <p style="color:rgba(255,255,255,0.55);font-size:13px;margin-bottom:24px;">To be considered, applicants must meet the following requirements:</p>
+          <div class="elig-item"><i class="fas fa-check-circle"></i><p>Minimum grade average of 70% or B in previous academic year</p></div>
+          <div class="elig-item"><i class="fas fa-check-circle"></i><p>Good conduct record and positive teacher recommendations</p></div>
+          <div class="elig-item"><i class="fas fa-check-circle"></i><p>Demonstrated financial need (for need-based awards)</p></div>
+          <div class="elig-item"><i class="fas fa-check-circle"></i><p>Applications accepted for students in Primary 2 through Secondary 3</p></div>
+          <div class="elig-item"><i class="fas fa-check-circle"></i><p>Must pass the scholarship assessment and interview stage</p></div>
+          <div style="margin-top:28px;"><a href="contact.html" class="btn-gold">Apply Now <i class="fas fa-arrow-right"></i></a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad" style="background:var(--cream);">
+    <div class="section-inner">
+      <div class="section-header-center reveal">
+        <div class="section-label">School Life</div>
+        <h2 class="section-title">Scholarship Students, Full Experience</h2>
+        <p class="section-subtitle">Scholarship recipients enjoy every activity, programme, and opportunity HLIS has to offer.</p>
+      </div>
+      <div class="act-feature">
+        <div class="act-img reveal-left"><img src="images/pic4.jpg" alt="Activities"></div>
+        <div class="reveal-right"><div class="section-label">Extra-Curricular</div><h3 class="section-title" style="font-size:clamp(22px,3vw,30px);">Sports & Athletics</h3><p style="color:var(--text-mid);font-size:15px;line-height:1.75;">All students — including scholarship recipients — participate fully in our sports programmes. Basketball, athletics, and team competitions build discipline, resilience, and camaraderie.</p></div>
+      </div>
+      <div class="act-feature">
+        <div class="act-img reveal-right"><img src="images/chess.jpg" alt="Chess"></div>
+        <div class="reveal-left"><div class="section-label">Mind Sports</div><h3 class="section-title" style="font-size:clamp(22px,3vw,30px);">Chess & Strategy</h3><p style="color:var(--text-mid);font-size:15px;line-height:1.75;">Our chess club is a favourite among our brightest students. Strategic thinking, patience, and problem-solving skills developed here translate powerfully into academic success.</p></div>
+      </div>
+      <div class="act-feature">
+        <div class="act-img reveal-left"><img src="images/coding1.jpg" alt="Coding"></div>
+        <div class="reveal-right"><div class="section-label">Digital Skills</div><h3 class="section-title" style="font-size:clamp(22px,3vw,30px);">Coding & Technology</h3><p style="color:var(--text-mid);font-size:15px;line-height:1.75;">We prepare every HLIS student for the digital economy. Our coding programme gives students foundational programming skills and an early advantage in the technology-driven world ahead.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="admission-section">
+    <div class="admission-inner section-inner reveal">
+      <img src="images/kidss.jpg" alt="Students">
+      <div class="admission-text"><h2>Apply for a Scholarship</h2><p>Don't let financial barriers stand in the way of a world-class education. Contact us today and let's find a way to make HLIS possible for your child.</p></div>
+      <a href="contact.html" class="btn-navy">Contact Us <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="images/logo.jpg" alt="HLIS"><h3>Humble Light Int'l School</h3><p>Where Godly excellence meets academic excellence. Nurturing the next generation since 2013.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="teacher.html">Our Educators</a></li><li><a href="vehicle.html">Scholarship</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="footer-col"><h4>Programmes</h4><ul><li><a href="#">Reception</a></li><li><a href="#">Preschool</a></li><li><a href="#">Primary</a></li><li><a href="#">Secondary</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Humble Light International School. All Rights Reserved.</p>
+        <div class="social-links"><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="https://www.tiktok.com/@humble_light_" aria-label="TikTok"><i class="fab fa-tiktok"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a><a href="https://api.whatsapp.com/send/?phone=2347086614952&text&type=phone_number&app_absent=0" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', function() {
+      const open = navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+    });
+    navLinks.querySelectorAll('a').forEach(function(l) {
+      l.addEventListener('click', function() { navLinks.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded', false); });
+    });
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(function(el) { observer.observe(el); });
+  </script>
+</body>
+</html>

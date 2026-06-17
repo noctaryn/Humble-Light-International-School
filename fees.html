@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Pay School Fees – Humble Light International School" />
+  <link rel="icon" type="image/png" href="images/logo.jpg">
+  <title>Pay Fees – Humble Light Int'l School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/hlis-global.css">
+
+  <style>
+    /* ── PAGE HERO ── */
+    .fees-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #071628 55%, var(--navy-light) 100%);
+      padding: 120px 0 64px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .fees-hero::before { content:''; position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23c9a84c' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+    .fees-hero-inner { position:relative; z-index:1; max-width:680px; margin:0 auto; padding:0 20px; }
+    .fees-hero .breadcrumb-nav { font-size:11px; color:rgba(255,255,255,0.45); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:14px; }
+    .fees-hero .breadcrumb-nav a { color:var(--gold-light); }
+    .fees-hero h1 { font-size:clamp(28px,6vw,50px); color:var(--white); margin-bottom:14px; }
+    .fees-hero p { font-size:clamp(14px,2vw,17px); color:rgba(255,255,255,0.65); line-height:1.7; margin:0; }
+
+    /* ── STEP PILLS ── */
+    .step-pills {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0; margin-bottom: 44px;
+    }
+    .sp { display:flex; flex-direction:column; align-items:center; gap:6px; }
+    .sp .circle {
+      width: 38px; height: 38px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 13px;
+      background: rgba(13,43,85,0.08); color: var(--text-light);
+      border: 2px solid rgba(13,43,85,0.14); transition: all 0.35s;
+    }
+    .sp.active .circle { background: var(--navy); color: var(--white); border-color: var(--navy); box-shadow: 0 4px 14px rgba(13,43,85,0.25); }
+    .sp.done .circle { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+    .sp .lbl { font-size: 11px; color: var(--text-light); font-weight: 500; white-space: nowrap; }
+    .sp.active .lbl { color: var(--navy); font-weight: 600; }
+    .sp.done .lbl { color: var(--gold); }
+    .sp-line { width: 52px; height: 2px; background: rgba(13,43,85,0.1); margin-bottom: 20px; transition: background 0.35s; }
+    .sp-line.done { background: var(--gold); }
+
+    /* ── LAYOUT ── */
+    .fees-layout { display: grid; grid-template-columns: 1fr 290px; gap: 28px; align-items: start; max-width: 1000px; margin: 0 auto; }
+    .fees-step { display: none; }
+    .fees-step.active { display: block; animation: fadeUp 0.4s ease both; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+
+    /* ── FEE CATEGORIES ── */
+    .fee-cat {
+      background: var(--white); border-radius: 14px;
+      border: 1.5px solid rgba(13,43,85,0.08);
+      margin-bottom: 12px; overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .fee-cat:hover { border-color: rgba(13,43,85,0.18); box-shadow: 0 4px 20px rgba(13,43,85,0.07); }
+    .fee-cat-hdr {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 15px 20px; cursor: pointer;
+      user-select: none; -webkit-tap-highlight-color: transparent;
+    }
+    .fee-cat-hdr h3 { font-family: 'DM Sans',sans-serif; font-size: 14.5px; font-weight: 600; color: var(--navy); margin: 0; display: flex; align-items: center; gap: 9px; }
+    .fee-cat-hdr h3 i { color: var(--gold); font-size: 14px; }
+    .fee-chevron { color: var(--text-light); font-size: 12px; transition: transform 0.25s; }
+    .fee-cat.open .fee-chevron { transform: rotate(180deg); }
+    .fee-list { display: none; border-top: 1px solid rgba(13,43,85,0.06); }
+    .fee-cat.open .fee-list { display: block; }
+
+    .fee-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 13px 20px; border-bottom: 1px solid rgba(13,43,85,0.04);
+      transition: background 0.15s; gap: 10px; cursor: pointer;
+    }
+    .fee-item:last-child { border-bottom: none; }
+    .fee-item:hover { background: var(--cream); }
+    .fee-item.selected { background: rgba(13,43,85,0.04); }
+    .fee-item-left { display: flex; align-items: center; gap: 12px; }
+    .fee-checkbox {
+      width: 20px; height: 20px; border-radius: 5px;
+      border: 2px solid rgba(13,43,85,0.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: all 0.2s;
+      background: var(--white);
+    }
+    .fee-item.selected .fee-checkbox { background: var(--navy); border-color: var(--navy); }
+    .fee-checkbox i { font-size: 10px; color: var(--white); opacity: 0; transition: opacity 0.15s; }
+    .fee-item.selected .fee-checkbox i { opacity: 1; }
+    .fee-name { font-size: 13.5px; color: var(--text-dark); font-weight: 500; }
+    .fee-name small { display: block; font-size: 11.5px; color: var(--text-light); font-weight: 400; margin-top: 1px; }
+    .fee-amount { font-size: 14px; font-weight: 700; color: var(--navy); white-space: nowrap; }
+
+    /* ── SUMMARY BOX ── */
+    .summary-box {
+      background: var(--navy); border-radius: 16px; padding: 22px;
+      position: sticky; top: 82px;
+    }
+    .summary-box h3 { font-size: 15px; color: var(--white); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+    .summary-box h3 i { color: var(--gold); }
+    .sum-line { display: flex; justify-content: space-between; align-items: flex-start; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.06); gap: 8px; }
+    .sum-line span { font-size: 12.5px; color: rgba(255,255,255,0.58); line-height: 1.4; }
+    .sum-line strong { font-size: 12.5px; color: var(--white); white-space: nowrap; }
+    .sum-empty { text-align: center; padding: 20px 0; }
+    .sum-empty i { font-size: 28px; color: rgba(255,255,255,0.15); margin-bottom: 8px; display: block; }
+    .sum-empty p { font-size: 12px; color: rgba(255,255,255,0.32); margin: 0; }
+    .sum-total {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 14px; padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.14);
+    }
+    .sum-total span { font-size: 14px; color: rgba(255,255,255,0.8); font-weight: 600; }
+    .sum-total strong { font-size: 22px; color: var(--gold); font-family: 'Playfair Display', serif; }
+    .proceed-btn {
+      width: 100%; padding: 13px; margin-top: 16px;
+      background: var(--gold); color: var(--navy);
+      border: none; border-radius: 8px;
+      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700;
+      cursor: pointer; transition: all 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .proceed-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .proceed-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+    /* ── STEP 2: DETAILS ── */
+    .step-card { background: var(--white); border-radius: 16px; padding: 28px; box-shadow: 0 2px 14px rgba(0,0,0,0.06); }
+    .step-card-title { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1.5px solid var(--cream); display: flex; align-items: center; gap: 8px; }
+    .step-card-title i { color: var(--gold); }
+    .back-btn { background: none; border: none; color: var(--text-mid); font-size: 13px; cursor: pointer; padding: 0 0 18px; display: inline-flex; align-items: center; gap: 6px; font-family: 'DM Sans', sans-serif; }
+    .back-btn:hover { color: var(--navy); }
+
+    .recap-box { background: var(--cream); border-radius: 10px; padding: 16px 18px; margin: 16px 0; }
+    .recap-row { display: flex; justify-content: space-between; gap: 8px; padding: 5px 0; border-bottom: 1px solid rgba(13,43,85,0.07); font-size: 13px; }
+    .recap-row:last-child { border-bottom: none; }
+    .recap-row span { color: var(--text-mid); }
+    .recap-row strong { color: var(--navy); }
+    .recap-total { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding-top: 10px; border-top: 1.5px solid rgba(13,43,85,0.1); }
+    .recap-total span { font-size: 14px; font-weight: 600; color: var(--navy); }
+    .recap-total strong { font-size: 20px; color: var(--gold); font-family: 'Playfair Display', serif; }
+
+    /* ── PAY BUTTON ── */
+    .pay-btn {
+      width: 100%; padding: 15px; margin-top: 20px;
+      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+      color: var(--white); border: none; border-radius: 10px;
+      font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700;
+      cursor: pointer; transition: all 0.2s;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      box-shadow: 0 6px 20px rgba(37,211,102,0.35);
+    }
+    .pay-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(37,211,102,0.45); }
+    .pay-btn i { font-size: 18px; }
+    .pay-note { text-align: center; font-size: 11.5px; color: var(--text-light); margin-top: 10px; line-height: 1.5; }
+
+    /* ── TRUST BADGES ── */
+    .trust-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 16px; }
+    .trust-badge { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--text-light); }
+    .trust-badge i { color: var(--gold); }
+
+    @media (max-width: 900px) { .fees-layout { grid-template-columns: 1fr; } .summary-box { position: static; } }
+    @media (max-width: 768px) {
+      .fees-hero { padding: 100px 0 48px; }
+      .sp-line { width: 28px; }
+      .step-card { padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <img src="images/logo.jpg" alt="HLIS Logo">
+        <div class="brand-text">Humble Light Int'l School<span>Excellence · Faith · Character</span></div>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="teacher.html">Our Educators</a></li>
+        <li><a href="vehicle.html">Scholarship</a></li>
+        <li class="active"><a href="fees.html">Pay Fees</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="fees-hero">
+    <div class="fees-hero-inner">
+      <div class="breadcrumb-nav"><a href="index.html">Home</a> &nbsp;/&nbsp; Pay Fees</div>
+      <h1>School Fees Payment</h1>
+      <p>Select the fees you wish to pay, fill in your details, and complete your payment via WhatsApp — quick and easy.</p>
+    </div>
+  </div>
+
+  <section style="background:var(--cream); padding:56px 0 80px;">
+    <div class="section-inner">
+
+      <!-- STEP PILLS -->
+      <div class="step-pills">
+        <div class="sp active" id="sp1"><div class="circle">1</div><div class="lbl">Select Fees</div></div>
+        <div class="sp-line" id="sl1"></div>
+        <div class="sp" id="sp2"><div class="circle">2</div><div class="lbl">Your Details</div></div>
+        <div class="sp-line" id="sl2"></div>
+        <div class="sp" id="sp3"><div class="circle"><i class="fab fa-whatsapp"></i></div><div class="lbl">Pay via WhatsApp</div></div>
+      </div>
+
+      <!-- ── STEP 1 ── -->
+      <div class="fees-step active" id="step1">
+        <div class="fees-layout">
+
+          <!-- FEE CATEGORIES -->
+          <div id="feeCatsContainer"></div>
+
+          <!-- SUMMARY -->
+          <div>
+            <div class="summary-box">
+              <h3><i class="fas fa-receipt"></i>Payment Summary</h3>
+              <div id="sumBody"><div class="sum-empty"><i class="fas fa-hand-pointer"></i><p>Tick fees to see your total</p></div></div>
+              <div class="sum-total" id="sumTotal" style="display:none;">
+                <span>Total</span>
+                <strong id="sumTotalAmt">₦0</strong>
+              </div>
+              <button class="proceed-btn" id="toStep2" disabled onclick="goStep(2)">
+                Continue &nbsp;<i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── STEP 2 ── -->
+      <div class="fees-step" id="step2" style="max-width:680px;margin:0 auto;">
+        <button class="back-btn" onclick="goStep(1)"><i class="fas fa-arrow-left"></i> Back to Fee Selection</button>
+        <div class="step-card">
+          <div class="step-card-title"><i class="fas fa-user-graduate"></i>Student & Parent Details</div>
+
+          <div class="form-row-2">
+            <div class="form-group"><label>Student First Name *</label><input type="text" id="stuFirst" placeholder="Chukwuemeka" required></div>
+            <div class="form-group"><label>Student Last Name *</label><input type="text" id="stuLast" placeholder="Obi" required></div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label>Class / Level *</label>
+              <select id="stuClass">
+                <option value="">Select class...</option>
+                <optgroup label="Reception"><option>Reception</option></optgroup>
+                <optgroup label="Pre-School"><option>Nursery 1</option><option>Nursery 2</option><option>KG 1</option><option>KG 2</option></optgroup>
+                <optgroup label="Primary"><option>Primary 1</option><option>Primary 2</option><option>Primary 3</option><option>Primary 4</option><option>Primary 5</option><option>Primary 6</option></optgroup>
+                <optgroup label="Secondary"><option>JSS 1</option><option>JSS 2</option><option>JSS 3</option><option>SSS 1</option><option>SSS 2</option><option>SSS 3</option></optgroup>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Term</label>
+              <select id="stuTerm">
+                <option>First Term</option>
+                <option>Second Term</option>
+                <option>Third Term</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group"><label>Academic Session</label><input type="text" id="stuSession" value="2024/2025"></div>
+            <div class="form-group"><label>Parent / Guardian Name</label><input type="text" id="parName" placeholder="Mr. Chidi Obi"></div>
+          </div>
+          <div class="form-group"><label>Parent Phone Number *</label><input type="tel" id="parPhone" placeholder="+234 ..."></div>
+
+          <!-- Recap -->
+          <div class="recap-box">
+            <div style="font-size:12.5px;font-weight:600;color:var(--navy);margin-bottom:8px;">Fees Selected</div>
+            <div id="step2Recap"></div>
+            <div class="recap-total">
+              <span>Total Amount</span>
+              <strong id="step2Total">₦0</strong>
+            </div>
+          </div>
+
+          <div id="step2Alert" style="display:none;padding:12px 14px;border-radius:8px;font-size:13.5px;font-weight:500;background:#fee2e2;color:#991b1b;border:1px solid #fca5a5;margin-bottom:14px;"></div>
+
+          <button class="pay-btn" onclick="sendToWhatsApp()">
+            <i class="fab fa-whatsapp"></i>
+            Send Payment Request via WhatsApp
+          </button>
+          <p class="pay-note">
+            Clicking the button will open WhatsApp with your fee details pre-filled.<br>
+            Our team will confirm your payment and provide bank details instantly.
+          </p>
+
+          <div class="trust-row">
+            <div class="trust-badge"><i class="fas fa-shield-alt"></i> Secure & Private</div>
+            <div class="trust-badge"><i class="fas fa-clock"></i> Fast Response</div>
+            <div class="trust-badge"><i class="fas fa-check-circle"></i> Confirmed by School</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="images/logo.jpg" alt="HLIS"><h3>Humble Light Int'l School</h3><p>Where Godly excellence meets academic excellence. Nurturing the next generation since 2013.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="teacher.html">Our Educators</a></li><li><a href="vehicle.html">Scholarship</a></li><li><a href="fees.html">Pay Fees</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="footer-col"><h4>Programmes</h4><ul><li><a href="#">Reception</a></li><li><a href="#">Preschool</a></li><li><a href="#">Primary</a></li><li><a href="#">Secondary</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Humble Light International School. All Rights Reserved.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.tiktok.com/@humble_light_" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://api.whatsapp.com/send/?phone=2347086614952&text&type=phone_number&app_absent=0" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  /* ── FEE DATA ── */
+  const FEES = [
+    { id:'tuition', name:'Tuition Fees', icon:'fa-graduation-cap', items:[
+      {id:'t1',name:'Reception Tuition',desc:'Per term',amount:45000},
+      {id:'t2',name:'Pre-School Tuition (Nursery / KG)',desc:'Per term',amount:50000},
+      {id:'t3',name:'Primary School Tuition',desc:'Per term',amount:60000},
+      {id:'t4',name:'Secondary School Tuition',desc:'Per term',amount:75000}
+    ]},
+    { id:'levies', name:'Levies & Development', icon:'fa-building', items:[
+      {id:'l1',name:'Development Levy',desc:'Annual, once per year',amount:15000},
+      {id:'l2',name:'PTA Levy',desc:'Per term',amount:5000},
+      {id:'l3',name:'Examination Levy',desc:'Per term',amount:8000}
+    ]},
+    { id:'uniform', name:'Uniform & Books', icon:'fa-tshirt', items:[
+      {id:'u1',name:'School Uniform Set',desc:'2 sets included',amount:18000},
+      {id:'u2',name:'Textbooks Bundle',desc:'Full set for the term',amount:22000},
+      {id:'u3',name:'Exercise Books Pack',desc:'12 books',amount:4500}
+    ]},
+    { id:'activities', name:'Activities & Extras', icon:'fa-futbol', items:[
+      {id:'a1',name:'Sports Levy',desc:'Per term',amount:5000},
+      {id:'a2',name:'Chess Club',desc:'Per term',amount:4000},
+      {id:'a3',name:'Coding Club',desc:'Per term',amount:6000},
+      {id:'a4',name:'School Bus Fee',desc:'Per term – one way',amount:20000},
+      {id:'a5',name:'After-School Care',desc:'Per term',amount:12000}
+    ]},
+    { id:'admission', name:'Admission & Registration', icon:'fa-file-alt', items:[
+      {id:'r1',name:'New Student Registration',desc:'One-time fee',amount:10000},
+      {id:'r2',name:'Admission Form',desc:'Non-refundable',amount:2000},
+      {id:'r3',name:'Resumption Pack',desc:'Per term',amount:3500}
+    ]}
+  ];
+
+  const fmt = n => '₦' + Number(n).toLocaleString('en-NG');
+
+  /* ── RENDER FEES ── */
+  function renderFees() {
+    const c = document.getElementById('feeCatsContainer');
+    c.innerHTML = '';
+    FEES.forEach(function(cat) {
+      const d = document.createElement('div');
+      d.className = 'fee-cat';
+      d.id = 'cat-' + cat.id;
+      d.innerHTML = `
+        <div class="fee-cat-hdr" onclick="toggleCat('${cat.id}')">
+          <h3><i class="fas ${cat.icon}"></i>${cat.name}</h3>
+          <i class="fas fa-chevron-down fee-chevron"></i>
+        </div>
+        <div class="fee-list">
+          ${cat.items.map(function(it) { return `
+            <div class="fee-item" id="item-${it.id}" onclick="toggleItem('${it.id}', '${it.name.replace(/'/g,"\\'")}', ${it.amount})">
+              <div class="fee-item-left">
+                <div class="fee-checkbox"><i class="fas fa-check"></i></div>
+                <div class="fee-name">${it.name}<small>${it.desc}</small></div>
+              </div>
+              <div class="fee-amount">${fmt(it.amount)}</div>
+            </div>`; }).join('')}
+        </div>`;
+      c.appendChild(d);
+    });
+    // Open first category
+    toggleCat(FEES[0].id);
+  }
+
+  function toggleCat(id) {
+    var el = document.getElementById('cat-' + id);
+    if (el) el.classList.toggle('open');
+  }
+
+  /* ── SELECTION ── */
+  var selected = {};
+
+  function toggleItem(id, name, amount) {
+    var el = document.getElementById('item-' + id);
+    if (selected[id]) {
+      delete selected[id];
+      el.classList.remove('selected');
+    } else {
+      selected[id] = { name: name, amount: amount };
+      el.classList.add('selected');
+    }
+    updateSummary();
+  }
+
+  function getSelectedArr() {
+    return Object.values(selected);
+  }
+
+  function updateSummary() {
+    var arr = getSelectedArr();
+    var body = document.getElementById('sumBody');
+    var totEl = document.getElementById('sumTotal');
+    var btn = document.getElementById('toStep2');
+
+    if (!arr.length) {
+      body.innerHTML = '<div class="sum-empty"><i class="fas fa-hand-pointer"></i><p>Tick fees to see your total</p></div>';
+      totEl.style.display = 'none';
+      btn.disabled = true;
+    } else {
+      body.innerHTML = arr.map(function(s) {
+        return '<div class="sum-line"><span>' + s.name + '</span><strong>' + fmt(s.amount) + '</strong></div>';
+      }).join('');
+      var total = arr.reduce(function(a, b) { return a + b.amount; }, 0);
+      document.getElementById('sumTotalAmt').textContent = fmt(total);
+      totEl.style.display = 'flex';
+      btn.disabled = false;
+    }
+  }
+
+  /* ── STEPS ── */
+  function goStep(n) {
+    document.querySelectorAll('.fees-step').forEach(function(s) { s.classList.remove('active'); });
+    document.getElementById('step' + n).classList.add('active');
+
+    for (var i = 1; i <= 3; i++) {
+      var dot = document.getElementById('sp' + i);
+      if (!dot) continue;
+      dot.classList.remove('active', 'done');
+      if (i < n) dot.classList.add('done');
+      else if (i === n) dot.classList.add('active');
+    }
+    for (var j = 1; j <= 2; j++) {
+      var line = document.getElementById('sl' + j);
+      if (line) line.classList.toggle('done', j < n);
+    }
+
+    if (n === 2) {
+      var arr = getSelectedArr();
+      var total = arr.reduce(function(a, b) { return a + b.amount; }, 0);
+      document.getElementById('step2Recap').innerHTML = arr.map(function(s) {
+        return '<div class="recap-row"><span>' + s.name + '</span><strong>' + fmt(s.amount) + '</strong></div>';
+      }).join('');
+      document.getElementById('step2Total').textContent = fmt(total);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* ── WHATSAPP REDIRECT ── */
+  function sendToWhatsApp() {
+    var stuFirst = document.getElementById('stuFirst').value.trim();
+    var stuLast  = document.getElementById('stuLast').value.trim();
+    var stuClass = document.getElementById('stuClass').value;
+    var stuTerm  = document.getElementById('stuTerm').value;
+    var stuSess  = document.getElementById('stuSession').value.trim();
+    var parName  = document.getElementById('parName').value.trim();
+    var parPhone = document.getElementById('parPhone').value.trim();
+    var alertEl  = document.getElementById('step2Alert');
+
+    if (!stuFirst || !stuLast || !stuClass) {
+      alertEl.textContent = 'Please fill in the student\'s name and class before proceeding.';
+      alertEl.style.display = 'block';
+      window.scrollTo({ top: alertEl.offsetTop - 100, behavior: 'smooth' });
+      return;
+    }
+    alertEl.style.display = 'none';
+
+    var arr   = getSelectedArr();
+    var total = arr.reduce(function(a, b) { return a + b.amount; }, 0);
+
+    var feeLines = arr.map(function(s) { return '  • ' + s.name + ' — ' + fmt(s.amount); }).join('\n');
+
+    var msg = 
+      'Hello HLIS 👋\n\n' +
+      'I would like to make a school fees payment. Here are the details:\n\n' +
+      '*Student Name:* ' + stuFirst + ' ' + stuLast + '\n' +
+      '*Class:* ' + stuClass + '\n' +
+      '*Term:* ' + stuTerm + (stuSess ? ' (' + stuSess + ')' : '') + '\n' +
+      (parName ? '*Parent/Guardian:* ' + parName + '\n' : '') +
+      (parPhone ? '*Phone:* ' + parPhone + '\n' : '') +
+      '\n*Fees to Pay:*\n' + feeLines + '\n\n' +
+      '*Total Amount: ' + fmt(total) + '*\n\n' +
+      'Please send me the payment details. Thank you!';
+
+    var waURL = 'https://api.whatsapp.com/send/?phone=2347086614952&text=' + encodeURIComponent(msg) + '&type=phone_number&app_absent=0';
+    window.open(waURL, '_blank');
+
+    // Show step 3 dot as active
+    for (var i = 1; i <= 3; i++) {
+      var dot = document.getElementById('sp' + i);
+      if (!dot) continue;
+      dot.classList.remove('active', 'done');
+      if (i < 3) dot.classList.add('done');
+      else dot.classList.add('active');
+    }
+    document.getElementById('sl1').classList.add('done');
+    document.getElementById('sl2').classList.add('done');
+  }
+
+  /* ── INIT ── */
+  renderFees();
+
+  var hamburger = document.getElementById('hamburger');
+  var navLinks  = document.getElementById('navLinks');
+  hamburger.addEventListener('click', function() {
+    var open = navLinks.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(function(l) {
+    l.addEventListener('click', function() {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    });
+  });
+  </script>
+</body>
+</html>
